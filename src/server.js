@@ -19,6 +19,11 @@ var path = require('path'),
 
 var app = express();
 
+mongoose.connect(settings.database);
+mongoose.connect.on('err', function () {
+  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red);
+})
+
 app.set('port', process.env.PORT || 80);
 
 app.use(compression());

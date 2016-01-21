@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/spiritwild/chords"
   },
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "postinstall": "bower install && gulp build"
   },
