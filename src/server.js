@@ -2,7 +2,7 @@ require('babel-register')
 
 var path = require('path'),
   express = require('express'),
-  bodyParse = require('body-parse'),
+  bodyParser = require('body-parser'),
   compression = require('compression'),
   favicon = require('serve-favicon'),
   logger = require('morgan'),
@@ -15,12 +15,13 @@ var path = require('path'),
   Router = require('react-router'),
   swig = require('swig'),
   xml2js = require('xml2js'),
-  _ = require('underscore');
+  _ = require('underscore'),
+  settings = require('./conf/settings');
 
 var app = express();
 
 mongoose.connect(settings.database);
-mongoose.connect.on('err', function () {
+mongoose.connection.on('err', function () {
   console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red);
 })
 
@@ -30,9 +31,9 @@ app.use(compression());
 
 app.use(logger('dev'));
 
-app.use(bodyParse.json());
+app.use(bodyParser.json());
 
-app.use(bodyParse.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(express.static(path.join(__dirname, 'public')));
