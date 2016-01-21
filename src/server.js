@@ -24,7 +24,7 @@ mongoose.connect.on('err', function () {
   console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red);
 })
 
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 8080);
 
 app.use(compression());
 
