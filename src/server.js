@@ -20,7 +20,7 @@ var path = require('path'),
 
 var app = express();
 
-mongoose.connect(settings.database);
+mongoose.connect(settings.get('database:uri'));
 mongoose.connection.on('err', function () {
   console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red);
 })

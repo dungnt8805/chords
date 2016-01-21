@@ -2,6 +2,6 @@
   "express": {
   },
   "database": {
-    "uri": "mongodb://localhost:27017/hopam"
+    "uri": "mongodb://192.168.99.100/hopam"
   }
 }
